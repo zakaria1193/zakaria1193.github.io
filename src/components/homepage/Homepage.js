@@ -13,23 +13,24 @@ import Homelab from './cards/Homelab';
 function App() {
   return (
     <Box>
-        <Intro />
-         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-              <WhoAmI />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-              <LearningResources />
-          </Grid>
-
-          <Grid item xs={12} sm={6}>
-              <Homelab />
-          </Grid>
-
-          <Grid item xs={12} sm={6}>
-              <BlogPosts />
-          </Grid>
+      <Topbar />
+      <Intro />
+       <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+            <WhoAmI />
         </Grid>
+        <Grid item xs={12} sm={6}>
+            <LearningResources />
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+            <Homelab />
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+            <BlogPosts />
+        </Grid>
+      </Grid>
     </Box>
   );
 }
