@@ -1,5 +1,8 @@
 import { Box, ThemeProvider, CssBaseline, Grid } from '@mui/material';
 
+// Common components
+import Topbar from '../Topbar';
+
 // Components
 import Intro from './IntroBanner';
 import WhoAmI from './cards/WhoAmI';
