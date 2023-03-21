@@ -1,7 +1,4 @@
-import { ThemeProvider, CssBaseline, Grid } from '@mui/material';
-
-// Theme
-import {AppContainer, theme} from '../../Theme'
+import { Box, ThemeProvider, CssBaseline, Grid } from '@mui/material';
 
 // Components
 import Intro from './IntroBanner';
@@ -12,10 +9,7 @@ import Homelab from './cards/Homelab';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <AppContainer>
-        {/* <Menu /> */}
+    <Box>
         <Intro />
          <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
@@ -33,8 +27,7 @@ function App() {
               <BlogPosts />
           </Grid>
         </Grid>
-      </AppContainer>
-    </ThemeProvider>
+    </Box>
   );
 }
 
