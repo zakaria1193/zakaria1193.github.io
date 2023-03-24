@@ -22,7 +22,7 @@ const StyledLink = styled(Link)`
 `;
 
 function TopBar() {
-  const location = {pathname : '/'}
+  const location = useLocation()
 
   return (
     <StyledAppBar position="static">
@@ -33,8 +33,8 @@ function TopBar() {
         <StyledLink to="/resume" className={location.pathname === '/resume' ? 'active' : null}>
           <Button color="inherit">CV</Button>
         </StyledLink>
-        <StyledLink to="/contact" className={location.pathname === '/contact' ? 'active' : null}>
-          <Button color="inherit">Contact</Button>
+        <StyledLink to="/learning" className={location.pathname === '/learning' ? 'active' : null}>
+          <Button color="inherit">Learn Embedded</Button>
         </StyledLink>
       </Toolbar>
     </StyledAppBar>

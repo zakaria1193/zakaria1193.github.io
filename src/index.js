@@ -13,8 +13,7 @@ import { createRoot } from 'react-dom/client';
 
 // Pages
 import Homepage from './components/homepage/Homepage';
-// import About from './components/about/About';
-// import Contact from './components/contact/Contact';
+import Learning from './components/learning/page';
 
 // Theme
 import { AppContainer, theme } from './Theme';
@@ -35,6 +34,10 @@ const router = createBrowserRouter([
     path: "/",
     element: wrap(Homepage),
   },
+  {
+    path: "/learning",
+    element: wrap(Learning)
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
