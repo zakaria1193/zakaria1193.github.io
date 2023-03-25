@@ -12,6 +12,7 @@
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
     "@mui/material": "latest",
+    "firebase": "^9.18.0",
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "^6.9.0",
