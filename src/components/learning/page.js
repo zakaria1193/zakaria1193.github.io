@@ -1,113 +1,105 @@
-
-import { useState } from 'react';
-import { Box, Grid, Chip, Typography } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-// Common components
+// App.js
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import FilterSelect from '../helpers/FilterSelect';
+import SmartLinkChip from '../helpers/SmartLinkChip';
 import Topbar from '../Topbar';
 
-const theme = createTheme();
+const types = ['Blog Post', 'Article', 'White Paper'];
+const formats = ['Webpage', 'Video'];
+const difficultyLevels = ['Junior', 'Intermediate', 'Senior'];
+const sections = ['Web', 'Embedded', 'DevOps'];
 
-const SectionTitle = ({ title }) => {
-  return (
-    <Box mt={2} mb={1}>
-      <Typography variant="h4">{title}</Typography>
-    </Box>
-  )
+const test_existance = (element, array) =>
+{
+  if (!array.includes(element))
+  { 
+    throw new Error(`Element ${element} not found in array ${array}`)
+  }
 }
 
-const TagChip = ({ label, selected, onClick }) => {
-  return (
-    <Chip
-      label={label}
-      variant={selected ? 'filled' : 'outlined'}
-      onClick={onClick}
-      sx={{ mr: 1, mb: 1 }}
-    />
-  )
+class item {
+  constructor(name, type, format, difficultyLevel, section, url) {
+    this.name = name;
+    this.url = url;
+
+    test_existance(type, types);
+    this.type = type;
+
+    test_existance(format, formats);
+    this.format = format;
+
+    test_existance(difficultyLevel, difficultyLevels);
+    this.difficultyLevel = difficultyLevel;
+
+    test_existance(section, sections);
+    this.section = section;
+  }
 }
 
+const items = [
+  new item('How to use React Hooks', 'Blog Post', 'Webpage', 'Junior', 'Web', 'https://www.netatmo.com')
+]
 
-const Content = ({ items, activeLabel }) => {
-  return (
-    <Box>
-      {items.map(item => {
-        if (!activeLabel || item.labels.includes(activeLabel)) {
-          return (
-            <Box display="flex" alignItems="center" p={2} boxShadow={2} key={item.id}>
-              <Box flex={1}>
-                <Typography variant="h5">{item.title}</Typography>
-                <Typography variant="body1">{item.description}</Typography>
-              </Box>
-              <Box>
-                {item.labels.map(label => (
-                  <TagChip
-                    key={label}
-                    label={label}
-                    selected={label === activeLabel}
-                    onClick={() => activeLabel !== label && setActiveLabel(label)}
-                  />
-                ))}
-              </Box>
-            </Box>
-          )
-        } else {
-          return null;
-        }
-      })}
-    </Box>
-  )
-}
+
 
 function Page() {
-  const [activeLabel, setActiveLabel] = useState(null);
+  const [selectedTypes, setSelectedTypes] = useState([]);
+  const [selectedFormats, setSelectedFormats] = useState([]);
+  const [selectedDifficultyLevels, setSelectedDifficultyLevels] = useState([]);
 
-  const items = [
-    {
-      id: 1,
-      title: 'Git',
-      description: 'Git is a distributed version control system for tracking changes in source code during software development.',
-      labels: ['compilation', 'peripherals']
-    },
-    {
-      id: 2,
-      title: 'GCC',
-      description: 'The GNU Compiler Collection is a collection of compilers and libraries for C, C++, Objective-C, Fortran, Ada, and other programming languages.',
-      labels: ['compilation']
-    },
-    {
-      id: 3,
-      title: 'GDB',
-      description: 'GDB is a debugger for the C, C++, and Fortran programming languages. It allows you to see what is going on inside another program while it executes.',
-      labels: ['compilation', 'debugging']
-    },
-    {
-      id: 4,
-      title: 'Make',
-      description: 'Make is a build automation tool that automatically builds executable programs and libraries from source code by reading files called Makefiles.',
-      labels: ['compilation', 'automation']
-    }
-  ];
+  const filteredItems = items.filter((item) =>
+    (!selectedTypes.length || selectedTypes.includes(item.type)) &&
+    (!selectedFormats.length || selectedFormats.includes(item.format)) &&
+    (!selectedDifficultyLevels.length || selectedDifficultyLevels.includes(item.difficultyLevel))
+  );
 
   return (
     <Box>
       <Topbar />
-      <Box mt={2} p={2}>
-        <SectionTitle title="Compilation Peripherals" />
-        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-          {['compilation', 'peripherals', 'debugging', 'automation'].map(label => (
-            <TagChip
-              key={label}
-              label={label}
-              selected={label === activeLabel}
-              onClick={() => setActiveLabel(label)}
-            />
-          ))}
-        </Box>
-        <Content items={items} activeLabel={activeLabel} />
+      <Typography variant="h6" paragraph>
+        Use the filters below to narrow down the items displayed.
+      </Typography>
+      <Box display="flex" flexWrap="wrap"  sx={{ flexDirection: 'row' }} >
+        <FilterSelect
+          label="Pdf? Webpage? Video?"
+          options={types}
+          value={selectedTypes}
+          onChange={(e) => setSelectedTypes(e.target.value)}
+        />
+        <FilterSelect
+          label="Format"
+          options={formats}
+          value={selectedFormats}
+          onChange={(e) => setSelectedFormats(e.target.value)}
+        />
+        <FilterSelect
+          label="Difficulty Level"
+          options={difficultyLevels}
+          value={selectedDifficultyLevels}
+          onChange={(e) => setSelectedDifficultyLevels(e.target.value)}
+        />
       </Box>
+
+      {sections.map((section) => {
+        const sectionItems = filteredItems.filter((item) => item.section === section);
+
+        if (!sectionItems.length) return null;
+
+        return (
+          <Box key={section}>
+            <Typography variant="h4" sx={{ marginTop: 2, marginBottom: 1 }}>{section}</Typography>
+            <Box display="flex" flexWrap="wrap">
+              {sectionItems.map((item) => (
+                <SmartLinkChip key={item.id} url={item.url} name={item.name} />
+              ))}
+            </Box>
+          </Box>
+        );
+      })}
     </Box>
-    )
+  );
 }
 
-export default Page
+export default Page;
