@@ -13,7 +13,7 @@ import { createRoot } from 'react-dom/client';
 
 // Pages
 import Homepage from './components/homepage/Homepage';
-import Learning from './components/learning/page';
+import Learning from './components/learning/Page';
 
 // Theme
 import { AppContainer, theme } from './Theme';

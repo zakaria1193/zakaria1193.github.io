@@ -6,42 +6,7 @@ import FilterSelect from '../helpers/FilterSelect';
 import SmartLinkChip from '../helpers/SmartLinkChip';
 import Topbar from '../Topbar';
 
-const types = ['Blog Post', 'Article', 'White Paper'];
-const formats = ['Webpage', 'Video'];
-const difficultyLevels = ['Junior', 'Intermediate', 'Senior'];
-const sections = ['Web', 'Embedded', 'DevOps'];
-
-const test_existance = (element, array) =>
-{
-  if (!array.includes(element))
-  { 
-    throw new Error(`Element ${element} not found in array ${array}`)
-  }
-}
-
-class item {
-  constructor(name, type, format, difficultyLevel, section, url) {
-    this.name = name;
-    this.url = url;
-
-    test_existance(type, types);
-    this.type = type;
-
-    test_existance(format, formats);
-    this.format = format;
-
-    test_existance(difficultyLevel, difficultyLevels);
-    this.difficultyLevel = difficultyLevel;
-
-    test_existance(section, sections);
-    this.section = section;
-  }
-}
-
-const items = [
-  new item('How to use React Hooks', 'Blog Post', 'Webpage', 'Junior', 'Web', 'https://www.netatmo.com')
-]
-
+import { items, types, formats, difficultyLevels, sections } from './Items';
 
 
 function Page() {
@@ -58,10 +23,10 @@ function Page() {
   return (
     <Box>
       <Topbar />
-      <Typography variant="h6" paragraph>
+      <Typography variant="h6" paragraph sx={{ marginTop: 2 }}>
         Use the filters below to narrow down the items displayed.
       </Typography>
-      <Box display="flex" flexWrap="wrap"  sx={{ flexDirection: 'row' }} >
+      <Box display="flex" sx={{ flexDirection: 'row' }} >
         <FilterSelect
           label="Pdf? Webpage? Video?"
           options={types}
@@ -89,7 +54,7 @@ function Page() {
 
         return (
           <Box key={section}>
-            <Typography variant="h4" sx={{ marginTop: 2, marginBottom: 1 }}>{section}</Typography>
+            <Typography variant="h5" sx={{ marginTop: 2, marginBottom: 2 }}>{section}</Typography>
             <Box display="flex" flexWrap="wrap">
               {sectionItems.map((item) => (
                 <SmartLinkChip key={item.id} url={item.url} name={item.name} />
