@@ -10,12 +10,13 @@ let theme = createTheme({
 theme = responsiveFontSizes(theme);
 
 const AppContainer = styled('div')(({ theme }) => ({
-  display: 'flex',
+  display: 'block',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
   maxWidth: '1000px',
-  margin: '0 auto',
+  margin: 'auto',
+  padding: theme.spacing(2),
 }));
 
 
