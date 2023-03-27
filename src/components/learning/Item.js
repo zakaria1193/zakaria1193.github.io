@@ -1,7 +1,7 @@
-const types = ['Blog Post', 'Article', 'White Paper', 'Video'];
-const formats = ['Webpage', 'Video', 'PDF'];
-const difficultyLevels = ['Junior', 'Intermediate', 'Senior'];
-const sections = ['MCU Programming', 'RTOS', 'Networking', 'Web'];
+import React from 'react';
+import Box from '@mui/material/Box';
+import { types, formats, difficultyLevels, sections } from './FilterLists';
+import SmartLinkChip from '../helpers/SmartLinkChip';
 
 const test_existance = (element, array) =>
 {
@@ -30,14 +30,12 @@ class item {
   }
 }
 
-const items = [
-  new item('Pointer programming in C',
-           'Video',
-           'Video',
-           'Junior',
-           'MCU Programming',
-           "https://www.youtube.com/watch?v=cc16ShyiUG8&list=PLRJhV4hUhIymmp5CCeIFPyxbknsdcXCc8&index=6")
+function Item({ item  }) {
+  return (
+    <Box display="flex" flexWrap="wrap">
+      <SmartLinkChip url={item.url} name={item.name} />
+    </Box>
+  );
+}
 
-]
-
-export { items, types, formats, difficultyLevels, sections}
+export { Item, item }

@@ -1,13 +1,14 @@
 // App.js
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
+
+// Custom components
 import Typography from '@mui/material/Typography';
 import FilterSelect from '../helpers/FilterSelect';
-import SmartLinkChip from '../helpers/SmartLinkChip';
 import Topbar from '../Topbar';
-
-import { items, types, formats, difficultyLevels, sections } from './Items';
-
+import { sections, types, formats, difficultyLevels } from './FilterLists';
+import Section from './Section';
+import { items } from './ItemsData';
 
 function Page() {
   const [selectedTypes, setSelectedTypes] = useState([]);
@@ -24,7 +25,7 @@ function Page() {
     <Box>
       <Topbar />
       <Typography variant="h6" paragraph sx={{ marginTop: 2 }}>
-        Use the filters below to narrow down the items displayed.
+        Uses the filters below to narrow down the items displayed.
       </Typography>
       <Box display="flex" sx={{ flexDirection: 'row' }} >
         <FilterSelect
@@ -47,22 +48,14 @@ function Page() {
         />
       </Box>
 
-      {sections.map((section) => {
-        const sectionItems = filteredItems.filter((item) => item.section === section);
+      <Box>
+        {
+          sections.map((section_title) => (
+            <Section key={section_title} section_title={section_title} filteredItems={filteredItems} />
+          ))
+        }
+      </Box>
 
-        if (!sectionItems.length) return null;
-
-        return (
-          <Box key={section}>
-            <Typography variant="h5" sx={{ marginTop: 2, marginBottom: 2 }}>{section}</Typography>
-            <Box display="flex" flexWrap="wrap">
-              {sectionItems.map((item) => (
-                <SmartLinkChip key={item.id} url={item.url} name={item.name} />
-              ))}
-            </Box>
-          </Box>
-        );
-      })}
     </Box>
   );
 }
