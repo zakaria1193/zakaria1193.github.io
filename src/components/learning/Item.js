@@ -12,7 +12,9 @@ const test_existance = (element, array) =>
 }
 
 class item {
-  constructor(name, type, format, difficultyLevel, section, url) {
+  static chipLocationMarker = '{{chipLocation}}';
+
+  constructor(name, type, format, difficultyLevel, section, url, sentence) {
     this.name = name;
     this.url = url;
 
@@ -27,13 +29,23 @@ class item {
 
     test_existance(section, sections);
     this.section = section;
+
+    this.sentence = sentence || "{{chipLocation}}"
   }
 }
 
-function Item({ item  }) {
+function Item({ item }) {
+  const { sentence } = item;
+  const parts = sentence.split(item.constructor.chipLocationMarker);
+
   return (
     <Box display="flex" flexWrap="wrap">
-      <SmartLinkChip url={item.url} name={item.name} />
+      {parts.map((part, index) => (
+        <React.Fragment key={index}>
+          {part}
+          {index < parts.length - 1 && <SmartLinkChip url={item.url} name={item.name} />}
+        </React.Fragment>
+      ))}
     </Box>
   );
 }

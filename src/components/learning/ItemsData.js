@@ -6,7 +6,8 @@ const items = [
            'Video',
            'Junior',
            'MCU Programming',
-           "https://www.youtube.com/watch?v=cc16ShyiUG8&list=PLRJhV4hUhIymmp5CCeIFPyxbknsdcXCc8&index=6")
+           "https://www.youtube.com/watch?v=cc16ShyiUG8&list=PLRJhV4hUhIymmp5CCeIFPyxbknsdcXCc8&index=6",
+           "")
 ]
 
 export {items};
