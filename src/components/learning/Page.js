@@ -15,6 +15,7 @@ function Page() {
   const [selectedFormats, setSelectedFormats] = useState([]);
   const [selectedDifficultyLevels, setSelectedDifficultyLevels] = useState([]);
 
+  // Filter items given user selections (Component state)
   const filteredItems = items.filter((item) =>
     (!selectedTypes.length || selectedTypes.includes(item.type)) &&
     (!selectedFormats.length || selectedFormats.includes(item.format)) &&

@@ -17,7 +17,8 @@ const FilterSelect = ({ label, options, value, onChange }) => {
         onChange={onChange}
         renderValue={(selected) => selected.join(', ')}
       >
-        {options.map((option) => (
+        {
+        options.map((option) => (
           <MenuItem key={option} value={option}>
             <Checkbox checked={value.indexOf(option) > -1} />
             {option}

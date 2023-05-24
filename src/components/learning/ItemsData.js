@@ -86,4 +86,6 @@ const items = itemsData.map(itemData => new item(
   itemData.url,
   itemData.sentence));
 
+console.log(items);
+
 export {items};
