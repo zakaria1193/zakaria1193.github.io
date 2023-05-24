@@ -1,11 +1,10 @@
 
 import React from 'react';
-import { Box, Chip, Link, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import SmartLinkChip from '../helpers/SmartLinkChip'
 
 
 const Netatmo = () => {
-  let index=0
   let url='https://www.netatmo.com'
   return <SmartLinkChip url={url} name="Netatmo"/>
 }
