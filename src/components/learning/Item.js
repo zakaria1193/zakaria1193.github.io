@@ -41,10 +41,12 @@ function Item({ item }) {
   return (
     <Box display="flex" flexWrap="wrap">
       {parts.map((part, index) => (
-        <React.Fragment key={index}>
-          {part}
-          {index < parts.length - 1 && <SmartLinkChip url={item.url} name={item.name} />}
-        </React.Fragment>
+        <Box display="inline" key={index}>
+          <React.Fragment key={index}>
+            {part}
+            {index < parts.length - 1 && <SmartLinkChip url={item.url} name={item.name} />}
+          </React.Fragment>
+        </Box>
       ))}
     </Box>
   );
