@@ -14,7 +14,7 @@ const test_existance = (element, array) =>
 class item {
   static chipLocationMarker = '{{chipLocation}}';
 
-  constructor(name, type, format, difficultyLevel, section, url, sentence) {
+  constructor(name, type, format, difficultyLevel, section, subsection, url, sentence) {
     this.name = name;
     this.url = url;
 
@@ -29,6 +29,8 @@ class item {
 
     test_existance(section, sections);
     this.section = section;
+
+    this.subsection = subsection;
 
     this.sentence = sentence || "{{chipLocation}}"
   }

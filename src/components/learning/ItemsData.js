@@ -75,12 +75,14 @@ const itemsData = [
   }
 ];
 
+
 const items = itemsData.map(itemData => new item(
   itemData.name,
   itemData.type,
   itemData.format,
   itemData.difficultyLevel,
   itemData.section,
+  itemData.hasOwnProperty('subsection') ? itemData.subsection : '',
   itemData.url,
   itemData.sentence));
 
