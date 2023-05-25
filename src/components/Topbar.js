@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { AppBar, Toolbar, Button } from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
+import React from "react";
+import styled from "@emotion/styled";
+import { AppBar, Toolbar, Button } from "@mui/material";
+import { Link, useLocation } from "react-router-dom";
 
 const StyledAppBar = styled(AppBar)`
   background-color: #fff;
@@ -22,15 +22,22 @@ const StyledLink = styled(Link)`
 `;
 
 function TopBar() {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <StyledAppBar position="static">
       <Toolbar>
-        <StyledLink to="/" className={location.pathname === '/' ? 'active' : null}>
+        <StyledLink
+          to="/"
+          className={location.pathname === "/" ? "active" : null}
+        >
           <Button color="inherit">Home</Button>
         </StyledLink>
-        <StyledLink to="/learning" className={location.pathname === '/learning' ? 'active' : null}>
+
+        <StyledLink
+          to="/learning"
+          className={location.pathname === "/learning" ? "active" : null}
+        >
           <Button color="inherit">Learn Embedded</Button>
         </StyledLink>
       </Toolbar>
