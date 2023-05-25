@@ -1,22 +1,20 @@
-import * as React from 'react';
+import * as React from "react";
 import ReactDOM from "react-dom/client";
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
 
 // Router
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { createRoot } from 'react-dom/client';
+import { createRoot } from "react-dom/client";
 
 // Pages
-import Homepage from './components/homepage/Homepage';
-import Learning from './components/learning/Page';
+import Homepage from "./components/homepage/Homepage";
+import Learning from "./components/learning/Page";
+import Cv from "./components/cv/Page";
 
 // Theme
-import { AppContainer, theme } from './Theme';
+import { AppContainer, theme } from "./Theme";
 
 const wrap = (Component) => {
   return (
@@ -36,8 +34,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/learning",
-    element: wrap(Learning)
-  }
+    element: wrap(Learning),
+  },
+  {
+    path: "/cv",
+    element: wrap(Cv),
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -63,7 +65,7 @@ const firebaseConfig = {
   storageBucket: "personal-website-71663.appspot.com",
   messagingSenderId: "873028455797",
   appId: "1:873028455797:web:a4208805c37a0345d7173c",
-  measurementId: "G-DR9GEPHH39"
+  measurementId: "G-DR9GEPHH39",
 };
 
 // Initialize Firebase
