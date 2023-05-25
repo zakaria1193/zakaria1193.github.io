@@ -33,7 +33,12 @@ function TopBar() {
         >
           <Button color="inherit">Home</Button>
         </StyledLink>
-
+        <StyledLink
+          to="/cv"
+          className={location.pathname === "/cv" ? "active" : null}
+        >
+          <Button color="inherit">CV</Button>
+        </StyledLink>
         <StyledLink
           to="/learning"
           className={location.pathname === "/learning" ? "active" : null}
