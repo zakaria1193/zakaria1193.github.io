@@ -8,6 +8,7 @@ const StyledAppBar = styled(AppBar)`
   color: #000;
   box-shadow: none;
   border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 10px;
   & a {
     text-decoration: none;
   }
