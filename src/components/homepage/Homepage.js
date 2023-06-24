@@ -1,34 +1,34 @@
-import { Box, ThemeProvider, CssBaseline, Grid } from '@mui/material';
+import { Box, ThemeProvider, CssBaseline, Grid } from "@mui/material";
 
 // Common components
-import Topbar from '../Topbar';
+import Topbar from "../Topbar";
 
 // Components
-import Intro from './IntroBanner';
-import WhoAmI from './cards/WhoAmI';
-import LearningResources from './cards/LearningResources';
-import BlogPosts from './cards/BlogPosts';
-import Homelab from './cards/Homelab';
+import Intro from "./IntroBanner";
+import WhoAmI from "./cards/WhoAmI";
+import LearningResources from "./cards/LearningResources";
+import BlogPosts from "./cards/BlogPosts";
+import Homelab from "./cards/Homelab";
 
 function App() {
   return (
     <Box>
       <Topbar />
       <Intro />
-       <Grid container spacing={2} sx={{display:'none'}}>
+      <Grid container spacing={2} sx={{ display: "none" }}>
         <Grid item xs={12} sm={6}>
-            <WhoAmI />
+          <WhoAmI />
         </Grid>
         <Grid item xs={12} sm={6}>
-            <LearningResources />
-        </Grid>
-
-        <Grid item xs={12} sm={6}>
-            <Homelab />
+          <LearningResources />
         </Grid>
 
         <Grid item xs={12} sm={6}>
-            <BlogPosts />
+          <Homelab />
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <BlogPosts />
         </Grid>
       </Grid>
     </Box>
@@ -36,4 +36,3 @@ function App() {
 }
 
 export default App;
-
