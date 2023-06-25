@@ -2,8 +2,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import Divider from "@mui/material/Divider";
-import gaTechLogo from "../../assets/Georgia_Tech_seal.svg.png";
 
 const EducationItem = ({
   logo,
@@ -17,7 +15,16 @@ const EducationItem = ({
   return (
     // horizontal stack with pictute and text
     <Stack direction="row" spacing={2}>
-      <img src={logo} alt="Logo" width="100" height="100" />
+      <img
+        src={logo}
+        alt="Logo"
+        style={{
+          width: "30%",
+          height: "auto",
+          objectFit: "contain",
+          maxWidth: "100%",
+        }}
+      />
       <Box>
         <Typography variant="h6" gutterBottom sx={{ fontStyle: "italic" }}>
           {degree}
@@ -38,7 +45,7 @@ const EducationItem = ({
   );
 };
 
-const Description = ({ children }) => {
+const EducationDescription = ({ children }) => {
   return (
     <Typography variant="body1" gutterBottom paragraph>
       {children}
@@ -46,24 +53,4 @@ const Description = ({ children }) => {
   );
 };
 
-function Education() {
-  return (
-    <Stack spacing={2} divider={<Divider />}>
-      <EducationItem
-        logo={gaTechLogo}
-        school="Georgia Institute of Technology"
-        degree="Master of Science in Electrical and Computer Engineering"
-        start="2015"
-        end="2016"
-        location="Atlanta, GA, USA"
-      >
-        <Description>
-          Coursework focused on wireless networks, controls systems and
-          robotics. <br /> Minor in mechanical engineering.
-        </Description>
-      </EducationItem>
-    </Stack>
-  );
-}
-
-export default Education;
+export { EducationItem, EducationDescription };

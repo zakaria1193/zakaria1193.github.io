@@ -21,7 +21,7 @@ const SectionTitle = ({ children }) => (
 );
 
 // Custom components
-import Education from "./Education";
+import Education from "./Education/Education";
 
 function Page() {
   return (
