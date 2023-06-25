@@ -10,10 +10,15 @@ import Typography from "@mui/material/Typography";
 import Topbar from "../Topbar";
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
   padding: theme.spacing(1),
+  margin: theme.spacing(1),
 }));
+
+const SectionTitle = ({ children }) => (
+  <Typography variant="h4" marginBottom={2} gutterBottom>
+    {children}
+  </Typography>
+);
 
 // Custom components
 import Education from "./Education";
@@ -24,9 +29,7 @@ function Page() {
       <Topbar />
       <Stack spacing={2}>
         <Item>
-          <Typography variant="h3" gutterBottom>
-            Education
-          </Typography>
+          <SectionTitle>Education</SectionTitle>
           <Education />
         </Item>
       </Stack>
