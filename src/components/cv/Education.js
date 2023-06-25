@@ -19,10 +19,10 @@ const EducationItem = ({
     <Stack direction="row" spacing={2}>
       <img src={logo} alt="Logo" width="100" height="100" />
       <Box>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom sx={{ fontStyle: "italic" }}>
           {degree}
         </Typography>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom sx={{ letterSpacing: 2 }}>
           {school}
         </Typography>
         <Typography variant="body1" gutterBottom>
@@ -31,9 +31,18 @@ const EducationItem = ({
         <Typography variant="body1" gutterBottom>
           {location}
         </Typography>
+
         {children}
       </Box>
     </Stack>
+  );
+};
+
+const Description = ({ children }) => {
+  return (
+    <Typography variant="body1" gutterBottom paragraph>
+      {children}
+    </Typography>
   );
 };
 
@@ -48,7 +57,10 @@ function Education() {
         end="2016"
         location="Atlanta, GA, USA"
       >
-        toto
+        <Description>
+          Coursework focused on wireless networks, controls systems and
+          robotics. <br /> Minor in mechanical engineering.
+        </Description>
       </EducationItem>
     </Stack>
   );
