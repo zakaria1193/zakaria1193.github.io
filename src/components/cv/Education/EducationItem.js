@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
 import { useState } from "react";
+import Divider from "@mui/material/Divider";
 
 const EducationItem = ({
   logo,
@@ -16,40 +17,45 @@ const EducationItem = ({
 }) => {
   return (
     // horizontal stack with pictute and text
-    <Stack direction="row" spacing={2}>
-      <img
-        src={logo}
-        alt="Logo"
-        style={{
-          width: "30%",
-          height: "auto",
-          objectFit: "contain",
-          maxWidth: "100%",
-        }}
-      />
-      <Box padding={0.5}>
-        <Typography variant="h6" gutterBottom sx={{ fontStyle: "italic" }}>
-          {degree}
-        </Typography>
-        <Typography variant="h6" gutterBottom sx={{ letterSpacing: 2 }}>
+    <Box padding={0.5}>
+      <Stack
+        direction="row"
+        spacing={2}
+        marginBottom={2}
+        alignItems="center"
+        divider={<Divider orientation="vertical" flexItem />}
+      >
+        <img
+          src={logo}
+          alt="Logo"
+          style={{
+            width: "25%",
+          }}
+        />
+
+        <Typography variant="h8" sx={{ letterSpacing: 2, width: "100%" }}>
           {school}
         </Typography>
-        <Typography variant="body1" gutterBottom>
-          {start} - {end}
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          {location}
-        </Typography>
+      </Stack>
 
-        {children}
-      </Box>
-    </Stack>
+      <Typography variant="h7" sx={{ letterSpacing: 2 }}>
+        {degree}
+      </Typography>
+      <Typography variant="subtitle2">
+        {start} - {end}
+      </Typography>
+      <Typography gutterBottom variant="subtitle2">
+        {location}
+      </Typography>
+
+      {children}
+    </Box>
   );
 };
 
 const EducationDescription = ({ children }) => {
   return (
-    <Typography variant="body1" gutterBottom paragraph>
+    <Typography variant="body2" gutterBottom paragraph>
       {children}
     </Typography>
   );
