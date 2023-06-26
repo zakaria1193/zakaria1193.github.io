@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
-import ListItem from "@mui/material/ListItem";
 import { useState } from "react";
 
 const EducationItem = ({
@@ -28,7 +27,7 @@ const EducationItem = ({
           maxWidth: "100%",
         }}
       />
-      <Box>
+      <Box padding={0.5}>
         <Typography variant="h6" gutterBottom sx={{ fontStyle: "italic" }}>
           {degree}
         </Typography>
@@ -69,20 +68,22 @@ function ExpandingChips({ list_ }) {
   };
 
   return (
-    <Box>
-      {list_.map((data) => (
-        <ListItem key={data.key}>
+    <Stack spacing={2} border={0.2} borderColor="divider" padding={2}>
+      <Box>
+        {list_.map((data) => (
           <Chip
             label={data.label}
             onClick={() => handleChipClick(data)}
             color={expandedChip === data ? "primary" : "default"}
           />
-        </ListItem>
-      ))}
+        ))}
+      </Box>
       {expandedChip && (
-        <Typography variant="body2">{expandedChip.additionalText}</Typography>
+        <Typography variant="body2" GutterBottom paragraph>
+          {expandedChip.additionalText}
+        </Typography>
       )}
-    </Box>
+    </Stack>
   );
 }
 
