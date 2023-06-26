@@ -72,6 +72,7 @@ function ExpandingChips({ list_ }) {
       <Box>
         {list_.map((data) => (
           <Chip
+            key={data.key}
             label={data.label}
             onClick={() => handleChipClick(data)}
             color={expandedChip === data ? "primary" : "default"}
