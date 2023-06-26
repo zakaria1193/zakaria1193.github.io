@@ -2,6 +2,9 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Chip from "@mui/material/Chip";
+import ListItem from "@mui/material/ListItem";
+import { useState } from "react";
 
 const EducationItem = ({
   logo,
@@ -53,4 +56,34 @@ const EducationDescription = ({ children }) => {
   );
 };
 
-export { EducationItem, EducationDescription };
+function ExpandingChips({ list_ }) {
+  const [expandedChip, setExpandedChip] = useState(null);
+
+  const handleChipClick = (chip) => {
+    if (expandedChip === chip) {
+      setExpandedChip(null);
+    } else {
+      setExpandedChip(chip);
+    }
+    console.log("clicked chip");
+  };
+
+  return (
+    <Box>
+      {list_.map((data) => (
+        <ListItem key={data.key}>
+          <Chip
+            label={data.label}
+            onClick={() => handleChipClick(data)}
+            color={expandedChip === data ? "primary" : "default"}
+          />
+        </ListItem>
+      ))}
+      {expandedChip && (
+        <Typography variant="body2">{expandedChip.additionalText}</Typography>
+      )}
+    </Box>
+  );
+}
+
+export { EducationItem, EducationDescription, ExpandingChips };

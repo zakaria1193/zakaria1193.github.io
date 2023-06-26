@@ -1,5 +1,17 @@
-import { EducationItem, EducationDescription } from "../EducationItem";
+import {
+  EducationItem,
+  EducationDescription,
+  ExpandingChips,
+} from "../EducationItem";
 import gatech_logo from "../../../../assets/georgia_tech_extended_logo.png";
+
+const ExpandingChipsGatech = [
+  {
+    key: "toto",
+    label: "Why?",
+    additionalText: "Why not?",
+  },
+];
 
 const GaTech = () => {
   return (
@@ -12,9 +24,12 @@ const GaTech = () => {
       location="Atlanta, GA, USA"
     >
       <EducationDescription>
-        Coursework focused on wireless networks, controls systems and robotics.{" "}
+        Coursework focused on sensor networks, controls systems and autonomous
+        robotics.
         <br /> Minor in mechanical engineering.
       </EducationDescription>
+
+      <ExpandingChips list_={ExpandingChipsGatech} />
     </EducationItem>
   );
 };
