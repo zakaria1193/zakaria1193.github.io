@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
-import { useState } from "react";
 import Divider from "@mui/material/Divider";
 
 const EducationItem = ({
@@ -13,6 +12,7 @@ const EducationItem = ({
   start,
   end,
   location,
+  handleChipClick,
   children,
 }) => {
   return (
@@ -36,6 +36,9 @@ const EducationItem = ({
         <Typography variant="h8" sx={{ letterSpacing: 2, width: "100%" }}>
           {school}
         </Typography>
+        <button onClick={() => handleChipClick({ chip_label: "Why" })}>
+          ?
+        </button>
       </Stack>
 
       <Typography variant="h7" sx={{ letterSpacing: 2 }}>
@@ -61,18 +64,7 @@ const EducationDescription = ({ children }) => {
   );
 };
 
-function ExpandingChips({ list_ }) {
-  const [expandedChip, setExpandedChip] = useState(null);
-
-  const handleChipClick = (chip) => {
-    if (expandedChip === chip) {
-      setExpandedChip(null);
-    } else {
-      setExpandedChip(chip);
-    }
-    console.log("clicked chip");
-  };
-
+function ExpandingChips({ list_, selectedChip, handleChipClick }) {
   return (
     <Stack spacing={2} border={0.2} borderColor="divider" padding={2}>
       <Box>
@@ -81,13 +73,13 @@ function ExpandingChips({ list_ }) {
             key={data.key}
             label={data.label}
             onClick={() => handleChipClick(data)}
-            color={expandedChip === data ? "primary" : "default"}
+            color={selectedChip === data ? "primary" : "default"}
           />
         ))}
       </Box>
-      {expandedChip && (
+      {selectedChip && (
         <Typography variant="body2" GutterBottom paragraph>
-          {expandedChip.additionalText}
+          {selectedChip.additionalText}
         </Typography>
       )}
     </Stack>

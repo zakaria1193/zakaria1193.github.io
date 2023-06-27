@@ -5,14 +5,6 @@ import {
 } from "../EducationItem";
 import enseeiht_logo from "../../../../assets/enseeiht_logo.png";
 
-const ExpandingChipsGatech = [
-  {
-    key: "toto",
-    label: "Why?",
-    additionalText: "Why not?",
-  },
-];
-
 const ENSEEIHT = () => {
   return (
     <EducationItem
@@ -24,12 +16,8 @@ const ENSEEIHT = () => {
       location="Toulouse, France"
     >
       <EducationDescription>
-        Coursework focused on sensor networks, controls systems and autonomous
-        robotics.
-        <br /> Minor in mechanical engineering.
+        Major in electrical and automation engineering.
       </EducationDescription>
-
-      <ExpandingChips list_={ExpandingChipsGatech} />
     </EducationItem>
   );
 };
