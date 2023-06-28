@@ -4,6 +4,7 @@ import {
   EducationItem,
   EducationDescription,
   ExpandingChips,
+  chipClickHandler,
 } from "../EducationItem";
 import gatech_logo from "../../../../assets/georgia_tech_extended_logo.png";
 
@@ -18,21 +19,9 @@ const ExpandingChipsGatech = [
 const GaTech = () => {
   const [selectedChip, setSelectedChip] = useState(null);
 
-  const handleChipClick = ({ chip = null, chip_label = null }) => {
-    if (chip === null) {
-      console.error("Chip null in handleChipClick");
-      // look for the chip with the label
-      chip = ExpandingChipsGatech.find((chip) => chip.label === chip_label);
-    } else {
-      console.log("Chip in handleChipClick: ", chip);
-    }
+  const state = { selectedChip, setSelectedChip };
 
-    if (selectedChip === chip) {
-      setSelectedChip(null);
-    } else {
-      setSelectedChip(chip);
-    }
-  };
+  const handleChipClick = chipClickHandler(ExpandingChipsGatech, state);
 
   return (
     <EducationItem

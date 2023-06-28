@@ -36,7 +36,7 @@ const EducationItem = ({
         <Typography variant="h8" sx={{ letterSpacing: 2, width: "100%" }}>
           {school}
         </Typography>
-        <button onClick={() => handleChipClick({ chip_label: "Why" })}>
+        <button onClick={() => handleChipClick({ chip_label: "Why?" })}>
           ?
         </button>
       </Stack>
@@ -72,7 +72,7 @@ function ExpandingChips({ list_, selectedChip, handleChipClick }) {
           <Chip
             key={data.key}
             label={data.label}
-            onClick={() => handleChipClick(data)}
+            onClick={() => handleChipClick({ chip: data })}
             color={selectedChip === data ? "primary" : "default"}
           />
         ))}
@@ -86,4 +86,36 @@ function ExpandingChips({ list_, selectedChip, handleChipClick }) {
   );
 }
 
-export { EducationItem, EducationDescription, ExpandingChips };
+const chipClickHandler = (list_, state) => {
+  let handleChipClick = ({ chip = null, chip_label = null }) => {
+    if (chip === null) {
+      console.info("Chip null in handleChipClick");
+      // look for the chip with the label
+      chip = list_.find((chip) => chip.label === chip_label);
+      if (chip === undefined) {
+        console.error(
+          "Chip not found in handleChipClick using label",
+          chip_label
+        );
+        return;
+      }
+    } else {
+      console.log("Chip in handleChipClick: ", chip);
+    }
+
+    if (state.selectedChip === chip) {
+      state.setSelectedChip(null);
+    } else {
+      state.setSelectedChip(chip);
+    }
+  };
+
+  return handleChipClick;
+};
+
+export {
+  EducationItem,
+  EducationDescription,
+  ExpandingChips,
+  chipClickHandler,
+};
