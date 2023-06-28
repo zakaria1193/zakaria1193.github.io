@@ -5,6 +5,8 @@ import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
 import Divider from "@mui/material/Divider";
 
+import HelpIcon from "@mui/icons-material/HelpOutlineOutlined";
+
 const EducationItem = ({
   logo,
   school,
@@ -36,14 +38,15 @@ const EducationItem = ({
         <Typography variant="h8" sx={{ letterSpacing: 2, width: "100%" }}>
           {school}
         </Typography>
-        <button onClick={() => handleChipClick({ chip_label: "Why?" })}>
-          ?
-        </button>
       </Stack>
 
       <Typography variant="h7" sx={{ letterSpacing: 2 }}>
         {degree}
       </Typography>
+
+      <button onClick={() => handleChipClick({ chip_label: "Why?" })}>
+        <HelpIcon color="primary" fontSize="small" />
+      </button>
       <Typography variant="subtitle2">
         {start} - {end}
       </Typography>
@@ -65,6 +68,9 @@ const EducationDescription = ({ children }) => {
 };
 
 function ExpandingChips({ list_, selectedChip, handleChipClick }) {
+  if (selectedChip === null) {
+    return null;
+  }
   return (
     <Stack spacing={2} border={0.2} borderColor="divider" padding={2}>
       <Box>
