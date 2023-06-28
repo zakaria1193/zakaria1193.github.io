@@ -5,13 +5,15 @@ import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
 import Divider from "@mui/material/Divider";
 
+import IconButton from "@mui/material/IconButton";
+
 import HelpIcon from "@mui/icons-material/HelpOutlineOutlined";
 
 function HelpOutlineOutlinedIcon(props) {
   return (
-    <button onClick={() => props.handler({ chip_label: props.chip_label })}>
+    <IconButton onClick={() => props.handler({ chip_label: props.chip_label })}>
       <HelpIcon />
-    </button>
+    </IconButton>
   );
 }
 
