@@ -78,7 +78,7 @@ function ExpandingChips({ list_, selectedChip, handleChipClick }) {
         ))}
       </Box>
       {selectedChip && (
-        <Typography variant="body2" GutterBottom paragraph>
+        <Typography variant="body2" paragraph>
           {selectedChip.additionalText}
         </Typography>
       )}
