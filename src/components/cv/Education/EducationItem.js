@@ -7,6 +7,14 @@ import Divider from "@mui/material/Divider";
 
 import HelpIcon from "@mui/icons-material/HelpOutlineOutlined";
 
+function HelpOutlineOutlinedIcon(props) {
+  return (
+    <button onClick={() => props.handler({ chip_label: props.chip_label })}>
+      <HelpIcon />
+    </button>
+  );
+}
+
 const EducationItem = ({
   logo,
   school,
@@ -43,10 +51,8 @@ const EducationItem = ({
       <Typography variant="h7" sx={{ letterSpacing: 2 }}>
         {degree}
       </Typography>
+      <HelpOutlineOutlinedIcon handler={handleChipClick} chip_label="Why?" />
 
-      <button onClick={() => handleChipClick({ chip_label: "Why?" })}>
-        <HelpIcon color="primary" fontSize="small" />
-      </button>
       <Typography variant="subtitle2">
         {start} - {end}
       </Typography>
