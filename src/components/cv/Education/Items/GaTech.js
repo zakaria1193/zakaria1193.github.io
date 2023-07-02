@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-import {
-  EducationItem,
-  EducationDescription,
-  ExpandingChips,
-  chipClickHandler,
-} from "../EducationItem";
+import { EducationItem, EducationDescription } from "../EducationItem";
+
+import { ExpandingChips, chipClickHandler } from "../../HelpChips";
+
 import gatech_logo from "../../../../assets/georgia_tech_extended_logo.png";
 
 const ExpandingChipsGatech = [
@@ -27,6 +25,7 @@ const GaTech = () => {
     <EducationItem
       logo={gatech_logo}
       school="Georgia Institute of Technology"
+      school_help_label="Why?"
       degree="Master of Science in Electrical and Computer Engineering"
       start="2015"
       end="2016"
