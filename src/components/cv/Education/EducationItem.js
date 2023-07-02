@@ -10,6 +10,9 @@ import IconButton from "@mui/material/IconButton";
 import HelpIcon from "@mui/icons-material/HelpOutlineOutlined";
 
 function HelpOutlineOutlinedIcon(props) {
+  if (props.chip_label === null) {
+    return null;
+  }
   return (
     <IconButton onClick={() => props.handler({ chip_label: props.chip_label })}>
       <HelpIcon />
@@ -20,7 +23,9 @@ function HelpOutlineOutlinedIcon(props) {
 const EducationItem = ({
   logo,
   school,
+  school_help_label = null,
   degree,
+  degree_help_label = null,
   start,
   end,
   location,
@@ -48,12 +53,19 @@ const EducationItem = ({
         <Typography variant="h8" sx={{ letterSpacing: 2, width: "100%" }}>
           {school}
         </Typography>
+        <HelpOutlineOutlinedIcon
+          handler={handleChipClick}
+          chip_label={school_help_label}
+        />
       </Stack>
 
       <Typography variant="h7" sx={{ letterSpacing: 2 }}>
         {degree}
       </Typography>
-      <HelpOutlineOutlinedIcon handler={handleChipClick} chip_label="Why?" />
+      <HelpOutlineOutlinedIcon
+        handler={handleChipClick}
+        chip_label={degree_help_label}
+      />
 
       <Typography variant="subtitle2">
         {start} - {end}
