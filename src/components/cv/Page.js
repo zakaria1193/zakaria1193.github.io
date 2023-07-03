@@ -8,6 +8,8 @@ import Typography from "@mui/material/Typography";
 
 // Common components
 import Topbar from "../Topbar";
+import Education from "./Education/Education";
+import Experience from "./Experience/Experience";
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -20,14 +22,15 @@ const SectionTitle = ({ children }) => (
   </Typography>
 );
 
-// Custom components
-import Education from "./Education/Education";
-
 function Page() {
   return (
     <Box>
       <Topbar />
       <Stack spacing={2}>
+        <Item>
+          <SectionTitle>Experience</SectionTitle>
+          <Experience />
+        </Item>
         <Item>
           <SectionTitle>Education</SectionTitle>
           <Education />
