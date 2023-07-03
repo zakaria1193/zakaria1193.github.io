@@ -35,4 +35,38 @@ function ExperienceHeader({ Workplace, subtitle, logo }) {
   );
 }
 
-export { ExperienceHeader };
+function JobTitle({children}) {
+  return (
+    <Typography variant="h4" gutterBottom>
+      {children}
+    </Typography>
+  );
+}
+
+function Workplace({children}) {
+  return (
+    <Typography variant="subtitle2" gutterBottom>
+      {children}
+    </Typography>
+  );
+}
+
+function Period({children}) {
+  return (
+    <Typography variant="subtitle2" gutterBottom>
+      {children}
+    </Typography>
+  );
+}
+
+function Description({children}) {
+  return (
+    <Typography variant="body2" paragraph>
+      {children}
+    </Typography>
+  );
+}
+
+
+
+export { ExperienceHeader, JobTitle, Workplace, Period, Description };
