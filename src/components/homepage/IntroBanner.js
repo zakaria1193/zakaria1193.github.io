@@ -1,13 +1,7 @@
 
 import React from 'react';
 import { Box, Typography, Link } from '@mui/material';
-import SmartLinkChip from '../helpers/SmartLinkChip'
-
-
-const AdaCore = () => {
-  let url='https://www.adacore.com'
-  return <SmartLinkChip url={url} name="AdaCore"/>
-}
+import AdaCore from './AdaCore';
 
 const Intro = () => {
   return (
