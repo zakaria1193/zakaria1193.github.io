@@ -49,7 +49,7 @@ function Netatmo() {
       <Workplace>
         <NetatmoLink />, Paris, France
       </Workplace>
-      <Period>2021 - Present (3 years)</Period>
+      <Period>Jan 2021 – May 2025 (4 yrs 5 mos)</Period>
       <Description>
         - Led the development and launch of 10+ new wireless electrical devices and maintained 20+ others with approximately 100 sub-variants:<br />
         <span style={{ marginLeft: "1em" }}>- Actively contributed to software development while managing and reviewing my team's output, ensuring reusability, maintainability, and testability.</span><br />
@@ -62,7 +62,7 @@ function Netatmo() {
       <Workplace>
         <NetatmoLink />, Paris, France
       </Workplace>
-      <Period>2017 - 2021 (4 years)</Period>
+      <Period>Mar 2017 – Jan 2021 (3 yrs 11 mos)</Period>
       <Description>
         - Developed and maintained firmware for multiple wireless products as part of the <LegrandLink /> partnership, working with a team of 5 senior engineers:<br />
         <span style={{ marginLeft: "1em" }}>- Led the development of light dimming and power measurement features, utilizing expertise in power electronics and signal processing.</span><br />
