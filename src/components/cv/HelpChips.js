@@ -44,18 +44,11 @@ function ExpandingChips({ list_, selectedChip, handleChipClick }) {
 const chipClickHandler = (list_, state) => {
   let handleChipClick = ({ chip = null, chip_label = null }) => {
     if (chip === null) {
-      console.info("Chip null in handleChipClick");
       // look for the chip with the label
       chip = list_.find((chip) => chip.label === chip_label);
       if (chip === undefined) {
-        console.error(
-          "Chip not found in handleChipClick using label",
-          chip_label
-        );
         return;
       }
-    } else {
-      console.log("Chip in handleChipClick: ", chip);
     }
 
     if (state.selectedChip === chip) {

@@ -21,16 +21,19 @@ const Intro = () => {
           Here, I share my tips, thoughts, setup, and tools.
 
       </Box>
-      <Box
-        component="img"
-        src="/photo.jpg"
-        alt="Zak"
-        sx={{
-          maxWidth: { xs: '80%', md: '45%' },
-          height: 'auto',
-          mt: { xs: 3, md: 0 },
-        }}
-      />
+      <Box sx={{ maxWidth: { xs: '80%', md: '45%' }, mt: { xs: 3, md: 0 } }}>
+        <picture>
+          <source srcSet="/photo.webp" type="image/webp" />
+          <img
+            src="/photo.jpg"
+            alt="Zak"
+            loading="lazy"
+            width="600"
+            height="800"
+            style={{ maxWidth: '100%', height: 'auto', display: 'block' }}
+          />
+        </picture>
+      </Box>
     </Box>
   );
 };
