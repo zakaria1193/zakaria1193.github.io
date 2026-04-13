@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Box, Typography, Link } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import AdaCore from './AdaCore';
 
 const Intro = () => {
@@ -11,9 +11,7 @@ const Intro = () => {
           Hi!
         </Typography>
           I'm Zak, a senior embedded toolchain engineer working on cross-compilers, binary tools, and low-level run-time libraries at <AdaCore /> in Paris. <br />
-          Here, I share my tips, thoughts, setup, and tools. <br />
-          Otherwise, this website is a playground for me to experiment with modern frontend web technologies. <br />
-          Checkout <Link underline='hover' href='/cv'>my resume</Link> for more information.
+          Here, I share my tips, thoughts, setup, and tools.
 
       </Box>
       <Box component="img" src="/photo.jpg" alt="Zak" sx={{ maxWidth: '45%', height: 'auto' }} />
