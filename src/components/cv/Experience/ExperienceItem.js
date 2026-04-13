@@ -23,10 +23,6 @@ function ExperienceHeader({ Workplace, subtitle, logo }) {
           {Workplace}
         </Typography>
 
-        <Typography
-          variant="subtitle1"
-          sx={{ letterSpacing: 2, width: "100%" }}
-        ></Typography>
         <Typography variant="subtitle1" sx={{ letterSpacing: 2 }}>
           {subtitle}
         </Typography>

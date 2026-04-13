@@ -6,11 +6,8 @@ import { ThemeProvider } from "@mui/material/styles";
 // Router
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { createRoot } from "react-dom/client";
-
 // Pages
 import Homepage from "./components/homepage/Homepage";
-import Learning from "./components/learning/Page";
 import Cv from "./components/cv/Page";
 
 // Theme
@@ -31,10 +28,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: wrap(Homepage),
-  },
-  {
-    path: "/learning",
-    element: wrap(Learning),
   },
   {
     path: "/cv",

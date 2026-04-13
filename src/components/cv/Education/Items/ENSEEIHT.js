@@ -1,8 +1,4 @@
-import {
-  EducationItem,
-  EducationDescription,
-  ExpandingChips,
-} from "../EducationItem";
+import { EducationItem, EducationDescription } from "../EducationItem";
 import enseeiht_logo from "../../../../assets/enseeiht_logo.png";
 
 const ENSEEIHT = () => {
