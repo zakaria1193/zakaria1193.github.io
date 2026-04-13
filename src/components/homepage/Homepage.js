@@ -1,4 +1,4 @@
-import { Box, ThemeProvider, CssBaseline, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 // Common components
 import Topbar from "../Topbar";
