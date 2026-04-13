@@ -1,22 +1,22 @@
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 function ExperienceHeader({ Workplace, subtitle, logo }) {
   return (
     <Stack
-      direction="row"
+      direction={{ xs: 'column-reverse', sm: 'row' }}
       spacing={2}
       marginBottom={2}
-      alignItems="center"
-      divider={<Divider orientation="vertical" flexItem />}
+      alignItems={{ xs: 'flex-start', sm: 'center' }}
+      divider={<Divider orientation="vertical" flexItem sx={{ display: { xs: 'none', sm: 'block' } }} />}
     >
-      <img
+      <Box
+        component="img"
         src={logo}
         alt="Logo"
-        style={{
-          width: "25%",
-        }}
+        sx={{ width: { xs: '50%', sm: '25%' } }}
       />
       <Stack direction="column" spacing={1}>
         <Typography variant="h5" sx={{ letterSpacing: 2, width: "100%" }}>

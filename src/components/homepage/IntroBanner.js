@@ -5,8 +5,15 @@ import AdaCore from './AdaCore';
 
 const Intro = () => {
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', py: 6, px: 7 }}>
-      <Box sx={{ maxWidth: '50%' }}>
+    <Box sx={{
+      display: 'flex',
+      flexDirection: { xs: 'column', md: 'row' },
+      justifyContent: 'space-between',
+      alignItems: { xs: 'center', md: 'flex-start' },
+      py: 6,
+      px: { xs: 2, md: 7 },
+    }}>
+      <Box sx={{ maxWidth: { xs: '100%', md: '50%' } }}>
         <Typography variant="h2" align="left" gutterBottom>
           Hi!
         </Typography>
@@ -14,7 +21,16 @@ const Intro = () => {
           Here, I share my tips, thoughts, setup, and tools.
 
       </Box>
-      <Box component="img" src="/photo.jpg" alt="Zak" sx={{ maxWidth: '45%', height: 'auto' }} />
+      <Box
+        component="img"
+        src="/photo.jpg"
+        alt="Zak"
+        sx={{
+          maxWidth: { xs: '80%', md: '45%' },
+          height: 'auto',
+          mt: { xs: 3, md: 0 },
+        }}
+      />
     </Box>
   );
 };
