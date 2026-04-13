@@ -12,12 +12,14 @@ function ExperienceHeader({ Workplace, subtitle, logo }) {
       alignItems={{ xs: 'flex-start', sm: 'center' }}
       divider={<Divider orientation="vertical" flexItem sx={{ display: { xs: 'none', sm: 'block' } }} />}
     >
-      <Box
-        component="img"
-        src={logo}
-        alt="Logo"
-        sx={{ width: { xs: '50%', sm: '25%' } }}
-      />
+      {logo && (
+        <Box
+          component="img"
+          src={logo}
+          alt="Logo"
+          sx={{ width: { xs: '50%', sm: '25%' } }}
+        />
+      )}
       <Stack direction="column" spacing={1}>
         <Typography variant="h5" sx={{ letterSpacing: 2, width: "100%" }}>
           {Workplace}
