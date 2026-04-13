@@ -1,4 +1,5 @@
-import { EducationItem, EducationDescription } from "../EducationItem";
+import { EducationItem } from "../EducationItem";
+import { BulletList, BulletItem } from "../../Experience/ExperienceItem";
 import enseeiht_logo from "../../../../assets/enseeiht_logo.png";
 
 const ENSEEIHT = () => {
@@ -11,9 +12,9 @@ const ENSEEIHT = () => {
       end="2015"
       location="Toulouse, France"
     >
-      <EducationDescription>
-        Major in electrical and automation engineering.
-      </EducationDescription>
+      <BulletList>
+        <BulletItem>Major in electrical and automation engineering.</BulletItem>
+      </BulletList>
     </EducationItem>
   );
 };

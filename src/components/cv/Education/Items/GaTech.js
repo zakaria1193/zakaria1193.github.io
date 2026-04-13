@@ -1,4 +1,5 @@
-import { EducationItem, EducationDescription } from "../EducationItem";
+import { EducationItem } from "../EducationItem";
+import { BulletList, BulletItem } from "../../Experience/ExperienceItem";
 
 import gatech_logo from "../../../../assets/georgia_tech_extended_logo.png";
 
@@ -12,11 +13,10 @@ const GaTech = () => {
       end="2016"
       location="Atlanta, GA, USA"
     >
-      <EducationDescription>
-        Coursework focused on sensor networks, controls systems and autonomous
-        robotics.
-        <br /> Minor in mechanical engineering.
-      </EducationDescription>
+      <BulletList>
+        <BulletItem>Coursework focused on sensor networks, controls systems and autonomous robotics.</BulletItem>
+        <BulletItem>Minor in mechanical engineering.</BulletItem>
+      </BulletList>
     </EducationItem>
   );
 };
