@@ -65,6 +65,67 @@ function Description({children}) {
   );
 }
 
+function BulletList({ children, nested = false }) {
+  return (
+    <Box
+      component="ul"
+      sx={{
+        paddingLeft: nested ? 3 : 2,
+        marginTop: nested ? 0.5 : 0,
+        marginBottom: nested ? 0.5 : 1.5,
+        listStyle: "none",
+      }}
+    >
+      {children}
+    </Box>
+  );
+}
 
+function BulletItem({ children }) {
+  return (
+    <Typography
+      component="li"
+      variant="body2"
+      sx={{
+        position: "relative",
+        paddingLeft: "1.25em",
+        marginBottom: 0.75,
+        lineHeight: 1.6,
+        "&::before": {
+          content: '"•"',
+          position: "absolute",
+          left: 0,
+          color: "text.secondary",
+        },
+      }}
+    >
+      {children}
+    </Typography>
+  );
+}
 
-export { ExperienceHeader, JobTitle, Workplace, Period, Description };
+function SubBulletItem({ children }) {
+  return (
+    <Typography
+      component="li"
+      variant="body2"
+      sx={{
+        position: "relative",
+        paddingLeft: "1.25em",
+        marginBottom: 0.5,
+        lineHeight: 1.6,
+        color: "text.secondary",
+        "&::before": {
+          content: '"–"',
+          position: "absolute",
+          left: 0,
+          color: "text.disabled",
+        },
+      }}
+    >
+      {children}
+    </Typography>
+  );
+}
+
+export { ExperienceHeader, JobTitle, Workplace, Period, Description, BulletList, BulletItem, SubBulletItem };
