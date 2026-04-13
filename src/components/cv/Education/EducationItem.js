@@ -20,7 +20,7 @@ const EducationItem = ({
 }) => {
   return (
     // horizontal stack with pictute and text
-    <Box padding={0.5}>
+    <Box padding={1}>
       <Stack
         direction={{ xs: 'column-reverse', sm: 'row' }}
         spacing={2}
@@ -35,7 +35,7 @@ const EducationItem = ({
           sx={{ width: { xs: '50%', sm: '25%' } }}
         />
 
-        <Typography variant="h8" sx={{ letterSpacing: 2, width: "100%" }}>
+        <Typography variant="h6" sx={{ letterSpacing: 2, width: "100%" }}>
           {school}
         </Typography>
         <HelpOutlineOutlinedIcon
@@ -44,7 +44,7 @@ const EducationItem = ({
         />
       </Stack>
 
-      <Typography variant="h7" sx={{ letterSpacing: 2 }}>
+      <Typography variant="h6" sx={{ letterSpacing: 2 }}>
         {degree}
       </Typography>
       <HelpOutlineOutlinedIcon
