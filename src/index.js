@@ -1,4 +1,5 @@
 import * as React from "react";
+import { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
@@ -6,9 +7,9 @@ import { ThemeProvider } from "@mui/material/styles";
 // Router
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// Pages
-import Homepage from "./components/homepage/Homepage";
-import Cv from "./components/cv/Page";
+// Pages (lazy loaded for code splitting)
+const Homepage = lazy(() => import("./components/homepage/Homepage"));
+const Cv = lazy(() => import("./components/cv/Page"));
 
 // Theme
 import { AppContainer, theme } from "./Theme";
@@ -18,7 +19,9 @@ const wrap = (Component) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppContainer>
-        <Component />
+        <Suspense fallback={<div />}>
+          <Component />
+        </Suspense>
       </AppContainer>
     </ThemeProvider>
   );
@@ -40,4 +43,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-

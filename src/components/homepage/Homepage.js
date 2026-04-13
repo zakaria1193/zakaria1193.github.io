@@ -5,9 +5,6 @@ import Topbar from "../Topbar";
 
 // Components
 import Intro from "./IntroBanner";
-import WhoAmI from "./cards/WhoAmI";
-import LearningResources from "./cards/LearningResources";
-import BlogPosts from "./cards/BlogPosts";
 import Homelab from "./cards/Homelab";
 
 function App() {
@@ -17,18 +14,7 @@ function App() {
       <Intro />
       <Grid container spacing={2} sx={{ display: "none" }}>
         <Grid item xs={12} sm={6}>
-          <WhoAmI />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <LearningResources />
-        </Grid>
-
-        <Grid item xs={12} sm={6}>
           <Homelab />
-        </Grid>
-
-        <Grid item xs={12} sm={6}>
-          <BlogPosts />
         </Grid>
       </Grid>
     </Box>
