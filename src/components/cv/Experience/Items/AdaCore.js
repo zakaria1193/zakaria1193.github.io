@@ -1,6 +1,5 @@
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
-import adacore_logo from "../../../../assets/adacore_logo.png";
 
 // Custom components
 import {
@@ -24,7 +23,6 @@ function AdaCore() {
     <Box>
       <ExperienceHeader
         Workplace={<AdaCoreLink />}
-        logo={adacore_logo}
       />
       <JobTitle>Senior Embedded Toolchain Engineer</JobTitle>
       <Workplace>
