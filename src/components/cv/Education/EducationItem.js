@@ -22,18 +22,17 @@ const EducationItem = ({
     // horizontal stack with pictute and text
     <Box padding={0.5}>
       <Stack
-        direction="row"
+        direction={{ xs: 'column-reverse', sm: 'row' }}
         spacing={2}
         marginBottom={2}
-        alignItems="center"
-        divider={<Divider orientation="vertical" flexItem />}
+        alignItems={{ xs: 'flex-start', sm: 'center' }}
+        divider={<Divider orientation="vertical" flexItem sx={{ display: { xs: 'none', sm: 'block' } }} />}
       >
-        <img
+        <Box
+          component="img"
           src={logo}
           alt="Logo"
-          style={{
-            width: "25%",
-          }}
+          sx={{ width: { xs: '50%', sm: '25%' } }}
         />
 
         <Typography variant="h8" sx={{ letterSpacing: 2, width: "100%" }}>
