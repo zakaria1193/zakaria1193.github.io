@@ -12,7 +12,7 @@ import Education from "./Education/Education";
 import Experience from "./Experience/Experience";
 
 const Item = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(1),
+  padding: theme.spacing(3),
   margin: theme.spacing(1),
 }));
 

@@ -21,7 +21,7 @@ function ExperienceHeader({ Workplace, subtitle, logo }) {
         />
       )}
       <Stack direction="column" spacing={1}>
-        <Typography variant="h5" sx={{ letterSpacing: 2, width: "100%" }}>
+        <Typography variant="h6" sx={{ letterSpacing: 2, width: "100%" }}>
           {Workplace}
         </Typography>
 
@@ -35,7 +35,7 @@ function ExperienceHeader({ Workplace, subtitle, logo }) {
 
 function JobTitle({children}) {
   return (
-    <Typography variant="h4" gutterBottom>
+    <Typography variant="h6" gutterBottom>
       {children}
     </Typography>
   );
