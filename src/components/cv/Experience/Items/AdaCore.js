@@ -7,7 +7,8 @@ import {
   JobTitle,
   Workplace,
   Period,
-  Description,
+  BulletList,
+  BulletItem,
 } from "../ExperienceItem";
 
 function AdaCoreLink() {
@@ -29,11 +30,11 @@ function AdaCore() {
         <AdaCoreLink />, Paris, France
       </Workplace>
       <Period>May 2025 – Present (1 year)</Period>
-      <Description>
-        - Developing cross-compilers, binary tools, and low-level run-time libraries for a wide range of targets.<br />
-        - Working across the toolchain stack with a focus on RISC-V and other embedded architectures.<br />
-        - Skills: RISC-V, C++, Ada, and more.<br />
-      </Description>
+      <BulletList>
+        <BulletItem>Developing cross-compilers, binary tools, and low-level run-time libraries for a wide range of targets.</BulletItem>
+        <BulletItem>Working across the toolchain stack with a focus on RISC-V and other embedded architectures.</BulletItem>
+        <BulletItem>Skills: RISC-V, C++, Ada, and more.</BulletItem>
+      </BulletList>
     </Box>
   );
 }
